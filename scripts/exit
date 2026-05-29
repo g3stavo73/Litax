@@ -1,0 +1,13 @@
+#!/bin/bash
+# Comando para encerrar gracefully: /exit
+
+if [ -f "/tmp/litax/xfce.pid" ]; then
+    PID=$(cat /tmp/litax/xfce.pid)
+    echo "🛑 Encerrando XFCE gracefully (PID: $PID)..."
+    kill -TERM $PID 2>/dev/null || true
+    sleep 2
+fi
+
+# Ao sair, toda a sessão encerra via trap no script principal
+echo "✅ Desktop será encerrado em breve..."
+exit 0
