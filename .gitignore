@@ -1,0 +1,15 @@
+# Litax Desktop
+logs/
+*.log
+/tmp/
+/.vnc/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
