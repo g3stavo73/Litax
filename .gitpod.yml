@@ -1,1 +1,13 @@
+image:
+  file: .gitpod.Dockerfile
 
+tasks:
+  - name: 🖥️ Litax — Iniciando Desktop
+    command: bash scripts/start-desktop.sh
+
+ports:
+  - port: 6080
+    onOpen: open-preview
+    visibility: public
+  - port: 5900
+    visibility: private
