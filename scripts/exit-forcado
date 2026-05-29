@@ -1,0 +1,17 @@
+#!/bin/bash
+# Comando para forçar encerramento imediato: /exit-forcado
+
+echo "💢 FORÇANDO ENCERRAMENTO IMEDIATO..."
+
+# Matar tudo violentamente
+pkill -9 Xvfb 2>/dev/null || true
+pkill -9 vncserver 2>/dev/null || true
+pkill -9 websockify 2>/dev/null || true
+pkill -9 firefox 2>/dev/null || true
+pkill -9 xfce4-session 2>/dev/null || true
+
+# Limpar arquivos temporários
+rm -rf /tmp/litax
+
+echo "⚠️  Desktop foi destruído. Recrie com: ./scripts/start-desktop.sh"
+exit 0
