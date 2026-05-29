@@ -1,13 +1,25 @@
 image:
   file: .gitpod.Dockerfile
 
-tasks:
-  - name: 🖥️ Litax — Iniciando Desktop
-    command: bash scripts/start-desktop.sh
-
 ports:
   - port: 6080
-    onOpen: open-preview
+    onOpen: open-browser
     visibility: public
   - port: 5900
     visibility: private
+
+tasks:
+  - name: 🖥️ Desktop XFCE com noVNC
+    init: |
+      echo "🚀 Inicializando Desktop Litax..."
+      mkdir -p ~/.config/xfce4
+      mkdir -p ~/.local/share/xfce4
+      chmod +x $GITPOD_REPO_ROOT/scripts/*.sh
+      echo "✅ Configuração inicial concluída"
+    command: |
+      $GITPOD_REPO_ROOT/scripts/start-desktop.sh
+
+vscode:
+  extensions:
+    - esbenp.prettier-vscode
+    - ms-python.python
